@@ -31,7 +31,7 @@ public class AuthService {
     public AuthResponse register(RegisterRequest req) {
         User user = new User(req.getUsername(),
                         passwordEncoder.encode(req.getPassword()),
-                        Role.USER);
+                        Role.ROLE_USER);
 
         userRepository.save(user);
         String jwtToken = jwtService.generateToken(user);
